@@ -29,19 +29,6 @@ time, mark, audio, video {
   font-weight: lighter;
   color: #707070;
 }
-*:focus {
-  outline: none;
-}
-a,
-a:visited,
-a:hover,
-a:active {
-  color: inherit;}
-
-a {
-  -webkit-tap-highlight-color:rgba(0,0,0,0);
-  cursor:pointer;
-}
 
 body {
   line-height: 1;
@@ -347,7 +334,6 @@ header {
   height: 6.6rem;
   height: 5.5vw;
   max-height: 6.6rem;
-  margin-left: 1.2rem;
 }
 
 @media screen and (max-width: 600px) {
@@ -583,7 +569,6 @@ footer {
   box-sizing: border-box;
   display: flex;
   align-content: center;
-  margin-left: 1.2rem;
 }
 @media screen and (max-width: 600px) {
   .footer-img {
@@ -2973,7 +2958,6 @@ textarea {
   font-weight: 400;
 }
 
-
 /* contact */
 
 .main-head .service-title, .main-head .recruit-title, .main-head .work-title, .main-head .contact-head, .main-head .web-title {
@@ -3279,4 +3263,14 @@ form input {
 .recruit-check {
   width: 11.7rem;
   height: 3.5rem;
+}
+.main-head .web-bg {
+  margin-left: 39.9rem;
+  margin-left: clamp( 12.3rem,33.25vw,39.9rem );
+  background-image: url(/img/lux_imgs/lux_web.png);
+}
+
+.main-head .web-title {
+  margin-left: 21.6rem;
+  margin-left: clamp( 5.4rem,18vw,21.6rem );
 }
