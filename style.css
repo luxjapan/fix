@@ -29,6 +29,19 @@ time, mark, audio, video {
   font-weight: lighter;
   color: #707070;
 }
+*:focus {
+  outline: none;
+}
+a,
+a:visited,
+a:hover,
+a:active {
+  color: inherit;}
+
+a {
+  -webkit-tap-highlight-color:rgba(0,0,0,0);
+  cursor:pointer;
+}
 
 body {
   line-height: 1;
@@ -334,6 +347,7 @@ header {
   height: 6.6rem;
   height: 5.5vw;
   max-height: 6.6rem;
+  margin-left: 1.2rem;
 }
 
 @media screen and (max-width: 600px) {
@@ -564,12 +578,12 @@ footer {
 }
 
 .footer-img {
-  width: clamp(11rem, 25vw, 24rem);
-  margin-left: clamp(1.6rem, 6.08333vw, 7.3rem);
+  width: clamp(8rem, 23vw, 24rem);
   position: absolute;
   box-sizing: border-box;
   display: flex;
   align-content: center;
+  margin-left: 1.2rem;
 }
 @media screen and (max-width: 600px) {
   .footer-img {
@@ -910,12 +924,12 @@ footer {
 .logo {
   margin-left: 70vw;
   position: absolute;
-  margin-bottom: 2.5vw;
+  margin-bottom: 2vw;
 }
 
 .logo-twi, .logo-inst {
   box-sizing: border-box;
-  width: 8vh;
+  width: 5.5vh;
 }
 
 .top-footer .logo-twi {
@@ -2009,21 +2023,16 @@ footer {
   }
 }
 
-.main-head .movie-bg, .main-head .company-bg {
-  width: 75rem;
+.main-head .movie-bg {
   width: clamp(27.8rem, 62.5vw, 75rem);
-  height: 30rem;
   height: clamp(11.1rem, 25vw, 30rem);
   background-image: url("img/lux_imgs/lux_move.png");
 }
 
 .main-head .movie-title {
-  font-size: 11rem;
   font-size: clamp(4rem, 9.16667vw, 11rem);
   margin-right: -9.5rem;
-  margin-left: 14.9rem;
   margin-left: clamp(1.4rem, 12.41667vw, 14.9rem);
-  margin-left: 12.41667vw;
   z-index: 2;
   color: #f4f4f4;
 }
@@ -2031,7 +2040,15 @@ footer {
 @media screen and (max-width: 600px) {
   .main-head .movie-title {
     font-size: 4rem;
-    margin-left: clamp(1.4rem, 9.58333vw, 11.5rem);
+    margin-left: 10.6rem;
+    margin-right: -2.5rem;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .main-head .movie-title {
+    margin-left: 6.8rem;
+    margin-right: -2.5rem;
   }
 }
 
@@ -2053,21 +2070,17 @@ footer {
   }
 }
 
-.main-head .animation__movie, .main-head .animation__service, .main-head .animation__work, .main-head .animation__recruit {
-  width: 75.1rem;
+.main-head .animation__movie, .main-head .animation__graphic, .main-head .animation__sns, .main-head .animation__web, .main-head .animation__service, .main-head .animation__company, .main-head .animation__works, .main-head .animation__contact, .main-head .animation__recruit {
   width: clamp(28rem, 62.58333vw, 75.1rem);
-  max-width: 75.1rem;
   height: 7.3rem;
   border: 1px solid #707070;
   position: absolute;
-  top: 24.8rem;
   top: clamp(10.5rem, 20.66667vw, 24.8rem);
-  left: 24.5rem;
   left: clamp(12.5rem, 20.41667vw, 24.5rem);
 }
 
 @media screen and (max-width: 600px) {
-  .main-head .animation__movie, .main-head .animation__service, .main-head .animation__work, .main-head .animation__recruit {
+  .main-head .animation__movie, .main-head .animation__graphic, .main-head .animation__sns, .main-head .animation__web, .main-head .animation__service, .main-head .animation__company, .main-head .animation__works, .main-head .animation__contact, .main-head .animation__recruit {
     display: none;
   }
 }
@@ -2106,25 +2119,62 @@ footer {
 
 .main-head .graphic-title__black {
   color: #707070;
-  font-size: 11rem;
   font-size: clamp(4rem, 9.16667vw, 11rem);
 }
 
 @media screen and (max-width: 600px) {
-  .main-head .graphic-title__black {
-
-  
+  .main-head .graphic-title__black {  
     font-size: 4rem;
   }
 }
 
 .main-head .graphic-title {
-  font-size: 11rem;
   font-size: clamp(4rem, 9.16667vw, 11rem);
-  margin-right: -20.5rem;
-  margin-left: 14.9rem;
+  margin-right: -19.5rem;
   margin-left: clamp(1.4rem, 12.41667vw, 14.9rem);
   margin-left: 7.41667vw;
+  z-index: 2;
+  color: #f4f4f4;
+}
+
+@media screen and (min-width: 1200px) {
+  .main-head .graphic-title {
+    margin-left: 14.9rem;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+.main-head .graphic-title {
+  font-size: clamp(4rem, 9.16667vw, 11rem);
+  margin-right: -19.5rem;
+  margin-left: clamp(1.4rem, 12.41667vw, 14.9rem);
+  margin-left: 11.1667vw;
+  z-index: 2;
+  color: #f4f4f4;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .main-head .graphic-title {
+    font-size: 4rem;
+    margin-left: 11rem;
+    margin-right: -7.5rem;
+  }
+}
+
+@media screen and (max-width: 500px) {
+.main-head .graphic-title {
+    font-size: 4rem;
+    margin-left: 7.3rem;
+    margin-right: -7.5rem;
+  }
+}
+
+
+.main-head .movie-title {
+  font-size: clamp(4rem, 9.16667vw, 11rem);
+  margin-right: -9.5rem;
+  margin-left: clamp(1.4rem, 12.41667vw, 14.9rem);
   z-index: 2;
   color: #f4f4f4;
 }
@@ -2140,7 +2190,14 @@ background-image: url("img/lux_imgs/lux_graphic.png");
 
 
 
-
+.main-head .animation__movie, .main-head .animation__service, .main-head .animation__graphic, .main-head .animation__recruit {
+  width: clamp(28rem, 62.58333vw, 75.1rem);
+  height: 7.3rem;
+  border: 1px solid #707070;
+  position: absolute;
+  top: clamp(10.5rem, 20.66667vw, 24.8rem);
+  left: clamp(12.5rem, 20.41667vw, 24.5rem);
+}
 
 /* ----------------------------------------------------------------------------- */
 /* ---------------------------------   WEB   ----------------------------------- */
@@ -2153,12 +2210,198 @@ background-image: url("img/lux_imgs/lux_graphic.png");
 
 @media screen and (max-width: 600px) {
   .main-head .web-title__black {
-    font-size: 4rem;
+    font-size: 5rem;
   }
 }
 
+.main-head .web-bg {
+  width: clamp(27.8rem, 62.5vw, 75rem);
+  height: clamp(11.1rem, 25vw, 30rem);
+  background-image: url("img/lux_imgs/lux_web.png");
+}
 
 .main-head .web-title {
+  font-size: clamp(6rem, 9.16667vw, 11rem);
+  margin-right: -9.5rem;
+  margin-left: clamp(1.4rem, 12.41667vw, 14.9rem);
+  margin-left: 22.41667vw;
+  z-index: 2;
+  color: #f4f4f4;
+}
+
+@media screen and (min-width: 1600px) {
+  .main-head .web-title {
+    margin-left: 17.5vw;
+  }
+}
+@media screen and (min-width: 1570px) {
+  .main-head .web-title {
+    margin-left: 17.9vw;
+  }
+}
+@media screen and (min-width: 1550px) {
+  .main-head .web-title {
+    margin-left: 18.3vw;
+  }
+}
+@media screen and (min-width: 1530px) {
+  .main-head .web-title {
+    margin-left: 18.8vw;
+  }
+}
+@media screen and (min-width: 1510px) {
+  .main-head .web-title {
+    margin-left: 19.2vw;
+  }
+}
+@media screen and (min-width: 1490px) {
+  .main-head .web-title {
+    margin-left: 19.5vw;
+  }
+}
+@media screen and (min-width: 1470px) {
+  .main-head .web-title {
+    margin-left: 19.8vw;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .main-head .web-title {
+    margin-left: 20.1vw;
+  }
+}
+@media screen and (min-width: 1420px) {
+  .main-head .web-title {
+    margin-left: 20.5vw;
+  }
+}
+@media screen and (min-width: 1400px) {
+  .main-head .web-title {
+    margin-left: 21vw;
+  }
+}
+@media screen and (min-width: 1380px) {
+  .main-head .web-title {
+    margin-left: 21vw;
+  }
+}
+@media screen and (min-width: 1490px) {
+  .main-head .web-title {
+    margin-left: 19.5vw;
+  }
+}
+@media screen and (min-width: 1490px) {
+  .main-head .web-title {
+    margin-left: 19.5vw;
+  }
+}
+@media screen and (min-width: 1490px) {
+  .main-head .web-title {
+    margin-left: 19.5vw;
+  }
+}
+@media screen and (min-width: 1490px) {
+  .main-head .web-title {
+    margin-left: 19.5vw;
+  }
+}
+@media screen and (min-width: 1490px) {
+  .main-head .web-title {
+    margin-left: 19.5vw;
+  }
+}
+@media screen and (min-width: 1490px) {
+  .main-head .web-title {
+    margin-left: 19.5vw;
+  }
+}
+@media screen and (min-width: 1490px) {
+  .main-head .web-title {
+    margin-left: 19.5vw;
+  }
+}
+@media screen and (min-width: 1490px) {
+  .main-head .web-title {
+    margin-left: 19.5vw;
+  }
+}
+@media screen and (min-width: 1490px) {
+  .main-head .web-title {
+    margin-left: 19.5vw;
+  }
+}
+@media screen and (min-width: 1490px) {
+  .main-head .web-title {
+    margin-left: 19.5vw;
+  }
+}
+@media screen and (min-width: 1490px) {
+  .main-head .web-title {
+    margin-left: 19.5vw;
+  }
+}
+@media screen and (min-width: 1606px) {
+  .main-head .web-title {
+    font-size: clamp(6rem, 9.16667vw, 11rem);
+    margin-right: -10.5rem;
+    margin-left: clamp(1.4rem, 12.41667vw, 14.9rem);
+    margin-left: 17vw;
+    z-index: 2;
+    color: #f4f4f4;
+  }
+}
+@media screen and (min-width: 1606px) {
+  .main-head .web-title {
+    font-size: clamp(6rem, 9.16667vw, 11rem);
+    margin-right: -10.5rem;
+    margin-left: clamp(1.4rem, 12.41667vw, 14.9rem);
+    margin-left: 17vw;
+    z-index: 2;
+    color: #f4f4f4;
+  }
+}
+@media screen and (min-width: 1606px) {
+  .main-head .web-title {
+    font-size: clamp(6rem, 9.16667vw, 11rem);
+    margin-right: -10.5rem;
+    margin-left: clamp(1.4rem, 12.41667vw, 14.9rem);
+    margin-left: 17vw;
+    z-index: 2;
+    color: #f4f4f4;
+  }
+}
+@media screen and (min-width: 1606px) {
+  .main-head .web-title {
+    font-size: clamp(6rem, 9.16667vw, 11rem);
+    margin-right: -10.5rem;
+    margin-left: clamp(1.4rem, 12.41667vw, 14.9rem);
+    margin-left: 17vw;
+    z-index: 2;
+    color: #f4f4f4;
+  }
+}
+@media screen and (min-width: 1606px) {
+  .main-head .web-title {
+    font-size: clamp(6rem, 9.16667vw, 11rem);
+    margin-right: -10.5rem;
+    margin-left: clamp(1.4rem, 12.41667vw, 14.9rem);
+    margin-left: 17vw;
+    z-index: 2;
+    color: #f4f4f4;
+  }
+}
+@media screen and (min-width: 1606px) {
+  .main-head .web-title {
+    font-size: clamp(6rem, 9.16667vw, 11rem);
+    margin-right: -10.5rem;
+    margin-left: clamp(1.4rem, 12.41667vw, 14.9rem);
+    margin-left: 17vw;
+    z-index: 2;
+    color: #f4f4f4;
+  }
+}
+
+/* @media screen and (max-width: 1300px) {
+  .main-head .sns-title {
     font-size: 11rem;
     font-size: clamp(4rem, 9.16667vw, 11rem);
     margin-right: -9.5rem;
@@ -2167,18 +2410,9 @@ background-image: url("img/lux_imgs/lux_graphic.png");
     margin-left: 22.41667vw;
     z-index: 2;
     color: #f4f4f4;
-}
-
-.main-head .web-bg {
-  width: 75rem;
-  width: clamp(27.8rem, 62.5vw, 75rem);
-  height: 30rem;
-  height: clamp(11.1rem, 25vw, 30rem);
-  background-image: url("img/lux_imgs/lux_web.png");
-}
-
-
-
+  }
+  }
+   */
 
 /* ----------------------------------------------------------------------------- */
 /* ---------------------------------   SNS   ----------------------------------- */
@@ -2193,22 +2427,56 @@ background-image: url("img/lux_imgs/lux_graphic.png");
 
 @media screen and (max-width: 600px) {
   .main-head .sns-title__black {
-    font-size: 4rem;
+    font-size: 5rem;
   }
 }
 
 
 .main-head .sns-title {
-    font-size: 11rem;
-    font-size: clamp(4rem, 9.16667vw, 11rem);
+    font-size: clamp(6rem, 9.16667vw, 11rem);
     margin-right: -9.5rem;
-    margin-left: 14.9rem;
     margin-left: clamp(1.4rem, 12.41667vw, 14.9rem);
     margin-left: 22.41667vw;
     z-index: 2;
     color: #f4f4f4;
 }
 
+@media screen and (max-width: 1300px) {
+.main-head .sns-title {
+  font-size: 11rem;
+  font-size: clamp(4rem, 9.16667vw, 11rem);
+  margin-right: -9.5rem;
+  margin-left: 14.9rem;
+  margin-left: clamp(1.4rem, 12.41667vw, 14.9rem);
+  margin-left: 22.41667vw;
+  z-index: 2;
+  color: #f4f4f4;
+}
+}
+@media screen and (max-width: 1250px) {
+.main-head .sns-title {
+  font-size: 11rem;
+  font-size: clamp(4rem, 9.16667vw, 11rem);
+  margin-right: -9.5rem;
+  margin-left: 14.9rem;
+  margin-left: clamp(1.4rem, 12.41667vw, 14.9rem);
+  margin-left: 23.41667vw;
+  z-index: 2;
+  color: #f4f4f4;
+}
+}
+@media screen and (max-width: 600px) {
+.main-head .sns-title {
+  font-size: 11rem;
+  font-size: clamp(5rem, 9.16667vw, 11rem);
+  margin-right: -9.5rem;
+  margin-left: 14.9rem;
+  margin-left: clamp(1.4rem, 12.41667vw, 14.9rem);
+  margin-left: 25.41667vw;
+  z-index: 2;
+  color: #f4f4f4;
+}
+}
 .main-head .sns-bg {
   width: 75rem;
   width: clamp(27.8rem, 62.5vw, 75rem);
@@ -2236,13 +2504,10 @@ background-image: url("img/lux_imgs/lux_graphic.png");
 
 
 .main-head .company-bg {
-  width: 75rem;
   width: clamp(27.8rem, 62.5vw, 75rem);
-  height: 30rem;
   height: clamp(11.1rem, 25vw, 30rem);
   background-image: url("img/lux_imgs/lux_company.png");
 }
-
 
 
 
