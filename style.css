@@ -43,6 +43,7 @@ a {
   cursor:pointer;
 }
 
+
 body {
   line-height: 1;
 }
@@ -347,7 +348,6 @@ header {
   height: 6.6rem;
   height: 5.5vw;
   max-height: 6.6rem;
-  margin-left: 1.2rem;
 }
 
 @media screen and (max-width: 600px) {
@@ -583,7 +583,6 @@ footer {
   box-sizing: border-box;
   display: flex;
   align-content: center;
-  margin-left: 1.2rem;
 }
 @media screen and (max-width: 600px) {
   .footer-img {
@@ -2123,7 +2122,7 @@ footer {
 }
 
 @media screen and (max-width: 600px) {
-  .main-head .graphic-title__black {  
+  .main-head .graphic-title__black {
     font-size: 4rem;
   }
 }
@@ -2971,4 +2970,311 @@ textarea {
   content: '\f0e0';
   font-family: "Font Awesome 5 Free";
   font-weight: 400;
+}
+
+/* contact */
+
+.main-head .service-title, .main-head .recruit-title, .main-head .work-title, .main-head .contact-head, .main-head .web-title {
+  color: #f4f4f4;
+  font-size: 11rem;
+  font-size: clamp(3.8rem, 9.16667vw, 11rem);
+  margin-left: 9.8rem;
+  margin-left: clamp(0.8rem, 8.16667vw, 9.8rem);
+  z-index: 2;
+  position: absolute;
+  top: auto;
+}
+
+.main-head .service-title__black, .main-head .recruit-title__black, .main-head .work-title__black, .main-head .contact-head__black, .main-head .web-title__black {
+  color: #707070;
+  font-size: 11rem;
+  font-size: clamp(3.8rem, 9.16667vw, 11rem);
+}
+
+.main-head .contact-bg {
+  background-image: url("img/lux_imgs/lux_contact.png");
+  margin-left: 39.8rem;
+  margin-left: clamp(14rem, 33.16667vw, 39.8rem);
+  width: clamp(27.8rem, 66.83333vw, 80.2rem);
+}
+
+.recruit-wrap,.contact-wrap {
+  width: 76.3vw;
+  max-width: 91.6rem;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 750px) {
+  .recruit-wrap,.contact-wrap {
+    width: 34.2rem;
+  }
+}
+
+.subtitle {
+  margin-top: 7.5rem;
+  font-size: 3rem;
+  margin-left: 9.6rem;
+  position: relative;
+}
+
+@media screen and (max-width: 600px) {
+  .subtitle {
+    font-size: 2rem;
+    width: 10.1rem;
+    margin: 1.2rem auto 0;
+  }
+}
+
+.subtitle::after {
+  display: none;
+}
+
+@media screen and (max-width: 600px) {
+  .subtitle::after {
+    content: "";
+    display: block;
+    width: 9.3rem;
+    height: 0.5rem;
+    border: 1px solid #707070;
+    position: absolute;
+    top: 2rem;
+    left: 0.4rem;
+  }
+}
+
+.contact-subtitle {
+  margin-left: 0;
+}
+
+@media screen and (max-width: 750px) {
+  .contact-subtitle {
+    margin-left: auto;
+  }
+}
+
+.contact-container {
+  width: 69.75vw;
+  max-width: 83.7rem;
+  margin: 0 auto;
+}
+
+.contact-text {
+  font-size: 1.6rem;
+  width: 49.4rem;
+  width: clamp(32.9rem, 41.16667vw, 49.4rem);
+  margin: 2.8rem auto 0;
+  text-align: initial;
+}
+
+@media screen and (max-width: 600px) {
+  .contact-text {
+    font-size: 1.5rem;
+    line-height: 2.6rem;
+    width: clamp(25rem, 20.83333vw, 33rem);
+    margin-top: 2.2rem;
+  }
+}
+
+.recruit-text,.contact-text {
+  font-size: 1.6rem;
+  margin-top: 1rem;
+}
+
+@media screen and (max-width: 750px) {
+  .recruit-text,.contact-text {
+    font-size: 1rem;
+  }
+}
+
+.contact-text {
+  margin-top: 2rem;
+  margin-bottom: 5rem;
+  width: auto;
+}
+
+.contact-input {
+  max-width: 60rem;
+  width: 50vw;
+}
+
+form select {
+  height: 3.8rem;
+  width: 52.5vw;
+  max-width: 63rem;
+  background-image: url("/img/pulldown.svg");
+  background-size: 2.6rem 2rem;
+  background-position: right 10px center;
+  background-repeat: no-repeat;
+}
+
+@media screen and (max-width: 750px) {
+  form select {
+    height: 2rem;
+    width: 19.9rem;
+    background-size: 1.6rem 1.2rem;
+  }
+}
+
+textarea {
+  height: 19.9rem;
+  width: 52.5vw;
+  max-width: 63rem;
+}
+
+@media screen and (max-width: 750px) {
+  textarea {
+    height: 8.7rem;
+    width: 19.1rem;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  form input {
+    height: 2rem;
+    width: 19.1rem;
+  }
+}
+.form-input {
+  margin-right: 17.3rem;
+}
+
+@media screen and (max-width: 750px) {
+  .form-input {
+    margin-right: 2.5rem;
+  }
+}
+form li {
+  margin: 2rem 0;
+  display: flex;
+}
+
+ul > li {
+  list-style: none;
+}
+
+form label {
+  width: 17.4rem;
+  float: left;
+  margin-right: 10.2rem;
+  font-size: 1.6rem;
+}
+
+@media screen and (max-width: 750px) {
+  form label {
+    width: 12.6rem;
+    margin-right: 1.7rem;
+  }
+}
+
+label>span {
+  font-size: 1.6rem;
+}
+
+form input {
+  height: 3.8rem;
+  width: 52.5vw;
+  max-width: 63rem;
+}
+.recruit-check {
+  width: 11.7rem;
+  height: 3.5rem;
+}
+.recruit-form {
+  width: 18rem;
+  height: 5rem;
+  color: white;
+  background-color: #B5B0B0;
+  border-radius: 1.5rem;
+  font-size: 2rem;
+  box-shadow: 6px 5px 0 #E8E1E1;
+  border: 1px solid #707070;
+  margin: 9rem auto 0;
+  display: block;
+}
+
+.recruit-form:hover {
+  box-shadow: none;
+}
+.contact-form-wrap {
+  max-width: 71.5rem;
+  width: 59.583vw;
+  margin: 0 auto;
+}
+.form-answer {
+  font-size: 1.6rem;
+}
+
+@media screen and (max-width: 750px) {
+  p.form-answer {
+    width: 19.6rem!important;
+  }
+}
+
+.form-answer:nth-of-type(1) {
+  width: 29.3vw;
+  max-width: 35.2rem;
+}
+
+.button-wrap {
+  display: flex;
+  width: 30rem;
+  margin: 0 auto;
+  justify-content: space-between;
+}
+
+.recruit-form {
+  width: 18rem;
+  height: 5rem;
+  color: white;
+  background-color: #B5B0B0;
+  border-radius: 1.5rem;
+  font-size: 2rem;
+  box-shadow: 6px 5px 0 #E8E1E1;
+  border: 1px solid #707070;
+  margin: 9rem auto 0;
+  display: block;
+}
+
+.recruit-form:hover {
+  box-shadow: none;
+}
+.recruit-check {
+  width: 11.7rem;
+  height: 3.5rem;
+}
+.btn-brown {
+  background-color: #645454;
+}
+
+.recruit-thanks {
+  text-align: center;
+  font-size: 2rem;
+  margin-top: 13.5rem;
+}
+
+@media screen and (max-width: 750px) {
+  .recruit-thanks {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-top: 3.4rem;
+  }
+}
+
+.recruit-thanks-text {
+  text-align: center;
+  font-size: 1.6rem;
+  margin-top: 5.1rem;
+}
+
+@media screen and (max-width: 750px) {
+  .recruit-thanks-text {
+    text-align: start;
+    font-size: 1.6rem;
+    margin-top: 3.1rem;
+  }
+}
+
+.recruit-check {
+  width: 11.7rem;
+  height: 3.5rem;
 }
