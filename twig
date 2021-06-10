@@ -1,0 +1,189 @@
+{% extends 'default_frame.twig' %}
+
+{% block javascript %}
+<script>
+$(function() {
+    $('.add').click(function() {
+        var data = $(this).data();
+        var idx = data.idx;
+        var itemIdx = 0;
+        var item = $('#item' + idx);
+        var row = $('#item' + idx + '-0');
+
+        // 既存のお届け先のrowをコピーして雛形とする
+        var addrow = $(row).clone();
+
+        // 追加する要素のIndexを決定
+        var count = 0;
+        item.find(`.shipping_item`).each(function() {
+            // itemIdx = $(this).attr('data-itemidx');
+            count++;
+        });
+        // itemIdx = 1 + parseInt(itemIdx);
+        itemIdx = count;
+        console.log('itemIdx', itemIdx);
+
+        // 行のID設定
+        addrow.attr('id', 'item' + idx + '-' + itemIdx);
+        addrow.attr('data-itemidx', itemIdx);
+
+        // お届け先セレクトボックスのIDとNAME設定
+        addrow.find('select').attr('name', 'form[shipping_multiple][' + idx + '][shipping][' + itemIdx + '][customer_address]');
+        addrow.find('select').attr('id', 'form_shipping_multiple_' + idx + '_shipping_' + itemIdx + '_customer_address');
+
+        // 数量のINPUTのIDとNAME設定
+        addrow.find('input').attr('name', 'form[shipping_multiple][' + idx + '][shipping][' + itemIdx + '][quantity]');
+        addrow.find('input').attr('id', 'form_shipping_multiple_' + idx + '_shipping_' + itemIdx + '_quantity');
+
+        // その他、divやbuttonのID設定
+        addrow.find('[id*="multiple_list__shipping_address"]').attr('id', 'multiple_list__shipping_address--' + idx + '_' + itemIdx + '');
+        addrow.find('[id*="multiple_list__shipping_quantity"]').attr('id', 'multiple_list__shipping_quantity--' + idx + '_' + itemIdx + '');
+        addrow.find('button').each(function() {
+            $(this).attr('id', 'button__delete--' + idx + '_' + itemIdx + '');
+            $(this).attr('data-itemidx', idx + '-' + itemIdx);
+            $(this).data('itemidx', idx + '-' + itemIdx);
+            $(this).removeAttr('style');
+        });
+
+        $(item).append($(addrow));
+    });
+
+    $(document).on('click', '.delete', function() {
+        var data = $(this).data();
+        console.log('item' + data.itemidx)
+        // document.getElementById('item' + data.itemidx).remove()
+        $('#item' + data.itemidx).remove();
+    });
+
+});
+</script>
+{% endblock javascript %}
+
+{% block main %}
+<div class="wrapper wrapper-content ecommerce gray-bg">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <form id="shipping-multiple-form" method="post" action="{{ url('shopping_shipping_multiple') }}">
+          {{ form_widget(form._token) }}
+
+        <div class="ibox">
+          <div class="ibox-title relative">
+            <h5>お届け先を個別に設定|Shipping Separately</h5>
+            <div class="ec-AddAddress__new absolute t-r"><a href="{{ url('shopping_shipping_multiple_edit') }}" class="btn ec-inlineBtn">{{ '新規お届け先を追加|Add address'|trans }}</a></div>
+          </div>
+
+
+                {% for error in errors %}
+                <div class="text-danger">{{ error.message }}</div>
+                {% endfor %}
+
+    {% for orderItem in OrderItems %}
+          {% set idx = loop.index0 %}
+          {% set itemvalue = 0 %}
+
+
+        <div class="ibox-content list-items">
+            <div class="row">
+                <div class="col-sm-6 col-xs-12">
+                    <div id="multiple_list__item_box--{{ idx }}" class="ec-AddAddress__add">
+    
+    
+                      <div class="lst-image"><img src="{{ asset(orderItem.product.MainListImage|no_image_product, 'save_image') }}"></div>
+                      <div class="lst-body">
+                        <h3 class="lst-title">
+                          {{ orderItem.productName }}<span></span>
+                        </h3>
+                                {% if orderItem.productClass.classCategory1 %}
+                                <div class="ec-AddAddress__itemtSize">{{ orderItem.productClass.classCategory1 }}</div>
+                                {% endif %}
+                                {% if orderItem.productClass.classCategory2 %}
+                                <div class="ec-AddAddress__itemtSize">{{ orderItem.productClass.classCategory2 }}</div>
+                                {% endif %}
+    
+                        <p class="lst-action">
+                                    {% if orderItem.productClass.classCategory1 %}
+                                    <div class="ec-AddAddress__itemtSize">{{ orderItem.productClass.classCategory1 }}</div>
+                                    {% endif %}
+                                    {% if orderItem.productClass.classCategory2 %}
+                                    <div class="ec-AddAddress__itemtSize">{{ orderItem.productClass.classCategory2 }}</div>
+                                    {% endif %}
+                                    <div class="ec-AddAddress__itemtPrice">{{ '小計：'|trans }}{{ orderItem.totalPrice|price }}</div>
+    
+                                    {% for key, value in compItemQuantities %}
+                                        {% if orderItem.productClass.id == key %}
+                                            <div class="ec-AddAddress__itemtNumber" id="multiple_list__value--{{ idx }}_{{ key }}">{{ '数量|Qty'|trans }}：{{ value }}</div>
+                                            {% set itemvalue = value %}
+                                        {% endif %}
+                                    {% endfor %}
+                        </p>
+                      </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-xs-12">
+                    <div id="item{{ idx }}" class="form-horizontal">
+                        {% for shipping in form.shipping_multiple[idx].shipping %}
+                        <div id="item{{ idx }}-{{ loop.index0 }}" data-itemidx="{{ loop.index0 }}" class="form-group item{{ idx }} shipping_item">
+                            <div id="multiple_list__shipping_address--{{ idx }}_{{ loop.index0 }}" class="ec-AddAddress__selectAddress">
+                                <div class="col-md-7 col-sm-6">
+                                    <span>
+                                        <div class="Select Select--single is-searchable">
+                                            <label>{{ 'お届け先'|trans }}</label>
+                                            {{ form_widget(shipping.customer_address, {'attr': {'class': 'shipping'}}) }}
+                                            {{ form_errors(shipping.customer_address) }}
+                                        </div>
+                                    </span>
+                                </div>
+                            </div>
+                            <div id="multiple_list__shipping_quantity--{{ idx }}_{{ loop.index0 }}" class="ec-AddAddress__selectNumber">
+                                <div class="col-md-3 col-sm-4 w90px">
+                                    <span>
+                                    <label>{{ '数量|Qty'|trans }}</label>
+                                    {% for key, value in compItemQuantities %}
+                                        {% if orderItem.productClass.id == key %}
+                                            {% set quantity = shipping.quantity.vars.value ?: value %}
+                                            {{ form_widget(shipping.quantity, {'attr': {'class': 'quantity q_input'}, 'value': quantity}) }}
+                                            {{ form_errors(shipping.quantity) }}
+                                        {% endif %}
+                                    {% endfor %}
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col-sm-2 dlt_btn">
+                                <button id="button__delete--{{ idx }}_{{ loop.index0 }}" type="button" class="item-remove-btn"
+                                        {% if loop.index0 == 0 %}style="display:none;"{% endif %}
+                                        data-itemidx="{{ idx }}-{{ loop.index0 }}">{{'削除'|trans}}
+                                </button>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <div id="multiple_list__add_button{{ idx }}" class="col-sm-10 col-sm-offset-2 br_btn_box">
+                        <button id="button__add{{ idx }}" type="button" class="ec-inlineBtn add br_btn mlt_adad" data-idx="{{ idx }}">{{ 'お届け先追加|ADD addr'|trans }}</button>
+                    </div>
+                </div>
+            </div>
+          </div>
+
+
+
+        {#</div>#}
+        {#</div>#}
+    {% endfor %}
+
+        <div class="row mt10">
+              <div class="col-sm-6 col-xs-12">
+                <a href="{{ url('shopping') }}" class="btn btn-lg btn-default"><i class="fa fa-arrow-left" aria-hidden="true"></i>カートに戻る|To Cart</a>
+              </div>
+              <div class="col-sm-6 col-xs-12 right-button">
+                <button id="button__confirm" type="submit" class="btn btn-lg btn-primary">{{ '選択したお届け先に送る|Confirm'|trans }}</button>
+              </div>
+        </div>
+      </div>
+      </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
