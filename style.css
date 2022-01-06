@@ -1068,8 +1068,6 @@ button.swiper-pagination-bullet {
 }
 .blogView .item_img img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
 }
 .blogView .nextPrevButtonCont {
   overflow: auto;
@@ -2511,7 +2509,10 @@ header.priority {
     position: relative;
     left: 41%;
     border-radius: 20px;
+    opacity: 0;
+
 }
+.header_tell_line > p >a,
 .header_tell_line > a >p,
 .header_tell_line > p {
     color: #eee !important;
@@ -2663,8 +2664,8 @@ main.noHome .logo_02 {
   font-size: 12px;
 }
 #navJs .navInfo{}
-.navInfo > p,
-.navInfo > a > p {
+
+.navInfo * {
   color: #000;
   font-size: 22px;
   text-shadow: 2px 1px 2px #fff;
@@ -2677,6 +2678,9 @@ main.noHome header .navInfo > a > p {
 }
 .navInfo > p > span {
   font-size: 16px;
+}
+.timeAndTel > a{
+  color: #000;
 }
 .noHome .navPc {
   bottom: 30vh;
@@ -2957,7 +2961,7 @@ main.recruitMainView .navPc .navItem a {
   box-shadow: 0 0px 10px rgb(0 0 0 / 29%);
 }
 .BlogsAndTwitterViewCont .itemTwitter{
-  z-index: 2 !important;
+  z-index: 2;
 }
 @media screen and (max-width: 1024px) {
   .TopNewsAndTwitterView {
@@ -2969,10 +2973,16 @@ main.recruitMainView .navPc .navItem a {
   background-repeat: no-repeat;
   background-size: contain;
   background-position: right bottom;
-}
+  }
 .BlogsAndTwitterViewCont .itemTwitter {
   left: 0;
-}}
+  }
+.BlogsAndTwitterViewCont .itemTwitter,
+.BlogsAndTwitterViewCont .itemBlogs,
+.swiper-container{
+  z-index: 0 !important;
+  }
+}
 .TopNewsAndTwitterViewCont .itemTwitter iframe {
   margin: 0 auto;
   display: block !important;
@@ -10095,6 +10105,7 @@ height: 54px;
 .header_tell_line {
   animation: SlideIn 1.6s;
   animation-delay: 0.3s; 
+  animation-fill-mode: forwards;
 }
 
 @keyframes SlideIn {
